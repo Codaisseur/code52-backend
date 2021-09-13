@@ -23,3 +23,8 @@ Command:
 
 Run migrations: `npx sequelize-cli db:migrate`
 Undo migrations: `npx sequelize-cli db:migrate:undo:all`
+
+## Seed files
+
+Create a seed file: `npx sequelize-cli seed:generate --name some-users`
+Run seed files `npx sequelize-cli db:seed:all`
