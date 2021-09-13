@@ -1,0 +1,19 @@
+{
+  "development": {
+    "url": "postgres://kwvwargv:nRoJW_aY_uWiILy3P-LdTKgNrrrva3td@hattie.db.elephantsql.com/kwvwargv"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
