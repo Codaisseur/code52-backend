@@ -36,6 +36,7 @@ Create realations file: `npx sequelize-cli migration:generate --name set-up-rela
 0. Undo all the migrations
 1. Create a new migration to add relation
 2. Edit the recently created migration file to add new column
+2.1 Edit Seeds to add foreignKey
 3. Migrate and check the relation (Postico, DBeaver)
 4. Add the relations to the models (if you skip this step, query breaks)
 5. Query relations (use include)

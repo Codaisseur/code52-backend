@@ -7,16 +7,19 @@ module.exports = {
       [
         {
           title: "Work list",
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           title: "Personal list",
+          userId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           title: "Hobby list",
+          userId: 3,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
