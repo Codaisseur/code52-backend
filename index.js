@@ -7,12 +7,29 @@ const User = require("./models").user;
 const app = express();
 const PORT = 4000;
 
-app.get("/users", async (request, response) => {
+app.use(express.json()); // body-parser. => middleware.
+
+app.get("/users", async (request, response, next) => {
   try {
     const users = await User.findAll();
     response.send(users);
   } catch (error) {
     console.log(error.message);
+  }
+});
+
+app.post("/users", async (req, res, next) => {
+  try {
+    const { name, email, password } = req.body;
+    // if (!email || !password || !name) {
+    // res.status(400).send("Missing parameters");
+    // } else {
+    const newUser = await User.create({ name, email, password });
+    res.send(newUser);
+    // }
+  } catch (e) {
+    console.log(e.message);
+    next(e); // passes the error to express (error handler)
   }
 });
 
