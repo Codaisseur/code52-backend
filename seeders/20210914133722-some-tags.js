@@ -3,23 +3,25 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
-      "todoLists",
+      "tags",
       [
         {
-          title: "Work list",
-          userId: 1,
+          title: "Personal",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          title: "Personal list",
-          userId: 2,
+          title: "Week day",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          title: "Hobby list",
-          userId: 3,
+          title: "Weekend",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: "Goal",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -29,6 +31,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("todoLists", null, {});
+    return await queryInterface.bulkDelete("tags", null, {});
   },
 };

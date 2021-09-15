@@ -29,6 +29,37 @@ Undo migrations: `npx sequelize-cli db:migrate:undo:all`
 Create a seed file: `npx sequelize-cli seed:generate --name some-users`
 Run seed files `npx sequelize-cli db:seed:all`
 
+## Adding relations
+
+Create realations file: `npx sequelize-cli migration:generate --name set-up-relations`
+
+0. Undo all the migrations
+1. Create a new migration to add relation
+2. Edit the recently created migration file to add new column
+2.1 Edit Seeds to add foreignKey
+3. Migrate and check the relation (Postico, DBeaver)
+4. Add the relations to the models (if you skip this step, query breaks)
+5. Query relations (use include)
+
+```js
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.addColumn("todoLists", "userId", {
+      type: Sequelize.INTEGER,
+      references: {
+        model: "users",
+        key: "id",
+      },
+      onUpdate: "CASCADE",
+      onDelete: "SET NULL",
+    });
+  },
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeColumn("todoLists", "userId");
+  },
+};
+```
+
 # REST - REpresentational State Transfer
 
 - 3 main principles:
@@ -81,3 +112,4 @@ GET + DELETE => We can't send any data with these requests.
 Body of the request => payload.
 
 POST - `/users` = body => { name: 'wouter', email: 'ásdasdasd', ..., }
+

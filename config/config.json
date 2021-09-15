@@ -1,6 +1,6 @@
 {
   "development": {
-    "url": "postgres://kwvwargv:nRoJW_aY_uWiILy3P-LdTKgNrrrva3td@hattie.db.elephantsql.com/kwvwargv"
+    "url": "PUT YOUR URL HERE"
   },
   "test": {
     "username": "root",
