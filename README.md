@@ -41,27 +41,8 @@ Create realations file: `npx sequelize-cli migration:generate --name set-up-rela
 4. Add the relations to the models (if you skip this step, query breaks)
 5. Query relations (use include)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- module.exports = {
+```js
+module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn("todoLists", "userId", {
       type: Sequelize.INTEGER,
@@ -76,4 +57,59 @@ Create realations file: `npx sequelize-cli migration:generate --name set-up-rela
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeColumn("todoLists", "userId");
   },
-}; -->
+};
+```
+
+# REST - REpresentational State Transfer
+
+- 3 main principles:
+
+* Operations as HTTP methods
+* Respond with appropriate HTTP status codes
+* Use clean and meaningful URLs (endpoints).
+
+### Http methods:
+
+GET, DELETE, POST, PUT, PATCH  
+Read, delete, Create, update, update
+
+PATCH => { email: 'sdasd' }, PUT => { name: 'matias', email: 'sasds', ... }
+
+### Http status codes:
+
+200... All went good => All good
+300... Redirect => no longer here
+400... Client/user error => you screwed up.
+500... Server Error => I screwed up.
+
+200 - OK
+
+400 - Bad request
+401 - Unauthorized
+403 - Forbidden
+404 - Not found
+
+500 - Internal server error
+
+### Clean and meaningful urls:
+
+GET - /getUsers
+GET - /getLists
+GET - /getUsersAndLists
+GET - /listById/:id
+POST - /createAUser
+
+GET - /users
+POST - /users
+GET - /users/:id
+PATCH - /user/:id
+
+## Sending data on the request.
+
+GET + DELETE => We can't send any data with these requests.
+=> We can send url params (`/user/:id`).
+
+Body of the request => payload.
+
+POST - `/users` = body => { name: 'wouter', email: 'ásdasdasd', ..., }
+
