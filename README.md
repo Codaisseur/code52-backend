@@ -81,3 +81,10 @@ GET + DELETE => We can't send any data with these requests.
 Body of the request => payload.
 
 POST - `/users` = body => { name: 'wouter', email: 'ásdasdasd', ..., }
+
+## Middlewares
+
+## Routers:
+
+- Help us separate concerns.
+- Help us not have a gigantic index.js
